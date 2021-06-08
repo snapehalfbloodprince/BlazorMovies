@@ -1,0 +1,22 @@
+﻿@if (Movies == null)
+{
+    <img src="https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif"/>
+}
+else if (Movies.Count == 0)
+{
+
+
+    <text>There are no records to show.</text> }
+else
+{
+    @foreach (var movie in Movies)
+    {
+        <IndividualMovie Movie="movie" />
+    }
+}
+
+@code {
+    [Parameter]
+    public List<Movie> Movies{ get; set; }
+    
+}

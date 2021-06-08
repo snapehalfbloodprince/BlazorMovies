@@ -1,2 +1,20 @@
 ﻿@page "/"
 
+<div>
+    <h3>Movie</h3>
+    <MoviesList Movies="movies"/>
+</div>
+
+@code{
+    private List<Movie> movies;
+    protected override void OnInitialized()
+    {
+
+        movies = new List<Movie>()
+{
+            new Movie {Title = "Spiderman", ReleaseDate = new DateTime(2019,7,2)},
+            new Movie {Title = "Moana", ReleaseDate = new DateTime(2016,11,23)},
+            new Movie {Title = "Inception", ReleaseDate = new DateTime(2010,7,16)},
+        };
+    }
+}
