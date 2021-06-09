@@ -2,7 +2,14 @@
 
 <div>
     <h3>Movie</h3>
-    <MoviesList Movies="movies"/>
+    <MoviesList Movies="movies">
+        <NullTemplate>
+            <span style="color: red">Loading...</span>
+        </NullTemplate>
+        <EmptyTemplate>
+            <span style="color: blue">Nothing to show...</span>
+        </EmptyTemplate>
+    </MoviesList>
 </div>
 
 @code{
