@@ -1,4 +1,7 @@
 ﻿@page "/"
+@inject SingletonService singleton
+
+<p>Singleton count: @singleton.Value</p>
 
 <div>
     <h3>Movie</h3>
@@ -22,6 +25,6 @@
 
     private void AddNewMovie()
     {
-        movies.Add(new Movie(){Title = "Luke Cage", ReleaseDate = DateTime.Today});
+        movies.Add(new Movie() { Title = "Luke Cage", ReleaseDate = DateTime.Today });
     }
 }
