@@ -1,5 +1,6 @@
 ﻿@page "/"
 @inject SingletonService singleton
+@inject IRepository repository 
 
 <p>Singleton count: @singleton.Value</p>
 
@@ -15,12 +16,7 @@
     protected async override Task OnInitializedAsync()
     {
         //await Task.Delay(3000);
-        movies = new List<Movie>()
-{
-            new Movie {Title = "Spiderman", ReleaseDate = new DateTime(2019,7,2)},
-            new Movie {Title = "Moana", ReleaseDate = new DateTime(2016,11,23)},
-            new Movie {Title = "Inception", ReleaseDate = new DateTime(2010,7,16)},
-        };
+        movies = repository.GetMovies();
     }
 
     private void AddNewMovie()
