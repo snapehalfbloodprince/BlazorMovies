@@ -8,3 +8,7 @@ function dotNetStaticInvokation() {
             console.log("count from javascript " + result);
         })
 }
+
+function dotNetInstanceInvokation(dotnetHelper) {
+    dotnetHelper.invokeMethodAsync("IncrementCount");
+}
