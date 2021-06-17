@@ -17,10 +17,13 @@ namespace BlazorMovies.Client.Pages
         IJSRuntime js { get; set; }
         private int currentCount = 0;
         private static int currentCountStatic = 0;
+        private IJSObjectReference module;
 
         [JSInvokable]
         public async Task IncrementCount()
         {
+            module = await js.InvokeAsync<IJSObjectReference>("import", "./js/Counter.js");
+            await module.InvokeVoidAsync("displayAlert", "Hello world");
             currentCount++;
             singleton.Value += 1;
             transient.Value += 1;
