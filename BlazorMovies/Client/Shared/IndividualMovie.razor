@@ -1,8 +1,8 @@
 ﻿<div class="individual-movie-container">
-    <a>
+    <a href="@movieURL">
         <img src="@Movie.Poster" alt="Poster" class="movie-poster" />
     </a>
-    <p><a>@Movie.TitleBrief</a></p>
+    <p><a href="@movieURL">@Movie.TitleBrief</a></p>
     <div>
         <a class="btn btn-info">Edit</a>
         <button type="button" class="btn btn-danger"
@@ -18,6 +18,12 @@
     public Movie Movie { get; set; }
     [Parameter]
     public EventCallback<Movie> DeleteMovie { get; set; }
+    private string movieURL = String.Empty;
 
-   
+    protected override void OnInitialized()
+    {
+        movieURL = $"movie/";
+    }
+
+
 }
