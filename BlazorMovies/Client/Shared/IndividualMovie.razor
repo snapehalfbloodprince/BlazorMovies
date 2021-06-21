@@ -1,14 +1,14 @@
 ﻿<div class="individual-movie-container">
     <a>
-        <img src="@Movie.Poster"alt="Poster" class="movie-poster" />
+        <img src="@Movie.Poster" alt="Poster" class="movie-poster" />
     </a>
-    <p>@Movie.TitleBrief</p>
+    <p><a>@Movie.TitleBrief</a></p>
     <div>
         <a class="btn btn-info">Edit</a>
         <button type="button" class="btn btn-danger"
-                @onclick="@(()=> DeleteMovie.InvokeAsync(Movie))">
-                Delete
-                </button>
+                @onclick="@(() => DeleteMovie.InvokeAsync(Movie))">
+            Delete
+        </button>
     </div>
 </div>
 
