@@ -23,8 +23,9 @@ namespace BlazorMovies.Client
         private static void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IRepository,RepositoryInMemory>();
-            services.AddTransient<IGenreRepository, GenreRepository>();
-            services.AddTransient<IHttpService, HttpService>();
+            services.AddScoped<IGenreRepository, GenreRepository>();
+            services.AddScoped<IHttpService, HttpService>();
+            services.AddScoped<IPersonRepository, PersonRepository>();
 
         }
     }
