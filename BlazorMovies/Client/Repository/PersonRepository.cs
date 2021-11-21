@@ -18,7 +18,10 @@ namespace BlazorMovies.Client.Repository
             this.httpService = httpService;
         }
 
-        
+        public async Task<PaginatedResponse<List<Person>>> GetPeople(PaginationDTO paginationDTO)
+        {
+            return await httpService.GetHelper<List<Person>>(url, paginationDTO);
+        }
 
         public async Task<List<Person>> GetPeopleByName(string name)
         {
@@ -30,6 +33,10 @@ namespace BlazorMovies.Client.Repository
             return response.Response;
         }
 
+        public async Task<Person> GetPersonById(int id)
+        {
+            return await httpService.GetHelper<Person>($"{url}/{id}");
+        }
 
         public async Task CreatePerson(Person person)
         {
@@ -56,11 +63,6 @@ namespace BlazorMovies.Client.Repository
             {
                 throw new ApplicationException(await response.GetBody());
             }
-        }
-
-        public async Task<PaginatedResponse<List<Person>>> GetPeople(PaginationDTO paginationDTO)
-        {
-            return await httpService.GetHelper<List<Person>>(url, paginationDTO);
         }
     }
 }
