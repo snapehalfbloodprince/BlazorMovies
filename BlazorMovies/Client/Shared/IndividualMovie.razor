@@ -4,7 +4,7 @@
     </a>
     <p><a href="@movieURL">@Movie.TitleBrief</a></p>
     <div>
-        <a class="btn btn-info">Edit</a>
+        <a class="btn btn-info" href="/movies/edit/@Movie.Id">Edit</a>
         <button type="button" class="btn btn-danger"
                 @onclick="@(() => DeleteMovie.InvokeAsync(Movie))">
             Delete
@@ -14,16 +14,12 @@
 
 
 @code {
-    [Parameter]
-    public Movie Movie { get; set; }
-    [Parameter]
-    public EventCallback<Movie> DeleteMovie { get; set; }
-    private string movieURL = String.Empty;
+    [Parameter] public Movie Movie { get; set; }
+    [Parameter] public EventCallback<Movie> DeleteMovie { get; set; }
+    private string movieURL = string.Empty;
 
     protected override void OnInitialized()
     {
         movieURL = $"movie/{Movie.Id}/{Movie.Title.Replace(" ", "-")}";
     }
-
-
 }
