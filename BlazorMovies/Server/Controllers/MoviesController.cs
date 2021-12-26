@@ -18,7 +18,7 @@ namespace BlazorMovies.Server.Controllers
         private readonly ApplicationDbContext context;
         private readonly IFileStorageService fileStorageService;
         private readonly IMapper mapper;
-        private string containerName = "movies";
+        private readonly string containerName = "movies";
 
         public MoviesController(ApplicationDbContext context,
             IFileStorageService fileStorageService,
