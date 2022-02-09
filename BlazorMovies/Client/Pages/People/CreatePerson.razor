@@ -1,6 +1,10 @@
 ﻿@page "/person/create"
 @inject BlazorMovies.Client.Repository.IPersonRepository personRepository
 @inject NavigationManager navigationManager
+@attribute [Authorize]
+
+
+
 <h3>Create Person</h3>
 
 <PersonForm Person="Person" OnValidSubmit="Create" />

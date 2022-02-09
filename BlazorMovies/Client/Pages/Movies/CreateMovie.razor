@@ -2,6 +2,7 @@
 @inject NavigationManager navigationManager
 @inject BlazorMovies.Client.Repository.IMoviesRepository moviesRepository
 @inject BlazorMovies.Client.Repository.IGenreRepository genreRepository
+@attribute [Authorize]
 
 <h3>Create Movie</h3>
 @if (NotSelectedGenres != null)
